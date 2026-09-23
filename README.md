@@ -17,12 +17,6 @@ This repository holds the downloads. The source is private.
 3. Open it. The app is signed with a Developer ID and notarised by Apple, so it opens normally
    — no right-click, no `xattr`.
 
-Optional, for the command line tool:
-
-```sh
-mkdir -p ~/.local/bin && cp mdreview ~/.local/bin/
-```
-
 Requires macOS 14 or later. Universal: runs on Apple silicon and Intel.
 
 ## Using it
@@ -45,25 +39,11 @@ you:
 Answer this before phase 1, not phase 3.
 ```
 
-## The tight loop
+## Handing feedback to Claude Code
 
-The `mdreview` CLI turns a human review into an ordinary blocking step an agent can call:
-
-```sh
-mdreview wait docs/plan.md
-```
-
-That opens the document, blocks until you send, and prints your feedback on stdout. Tell Claude
-Code to run it and it will sit and wait for you.
-
-```
-mdreview open   <file>    open it and return immediately
-mdreview wait   <file>    open it, block until you send, print the feedback
-mdreview read   <file>    print the most recent feedback
-mdreview list             list stored reviews
-mdreview status <file>    is there feedback, and how many rounds so far
-mdreview clear  <file>    delete the saved review
-```
+**Export** writes `<document>.review.md` beside the document — point Claude Code at it and ask
+it to apply the feedback. **Copy to Clipboard** puts the same text on the clipboard to paste
+straight into a session.
 
 ## Where your comments are kept
 
