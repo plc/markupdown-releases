@@ -3,6 +3,24 @@
 All notable changes to Markupdown. Newest first. Downloads are on the
 [releases page](https://github.com/plc/markupdown-releases/releases).
 
+## 0.6.0 — 2026-09-23
+
+### Removed
+
+- **The `mdreview` command line tool.** Its `wait` subcommand blocked until a review was sent,
+  so an agent could treat a human review as an ordinary blocking step — but it meant two ways
+  of doing the same thing and a second binary to install, and it was more confusing than it was
+  worth. Export and Copy to Clipboard cover the same ground: point an agent at the exported
+  `.review.md`, or paste the comments straight into the session. The code is in the history if
+  it is ever wanted back.
+- The bundled download no longer carries a second binary, and `--install` no longer writes to
+  `~/.local/bin`.
+
+### Changed
+
+- `Integration/review-doc.md` now opens the document with `open -a Markupdown` and waits for you
+  to say you are done, rather than blocking on the CLI.
+
 ## 0.5.0 — 2026-09-23
 
 ### Added
