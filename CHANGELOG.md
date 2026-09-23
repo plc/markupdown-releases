@@ -1,7 +1,17 @@
 # Changelog
 
 All notable changes to Markupdown. Newest first. Downloads are on the
-[releases page](https://github.com/plc/markupdown/releases).
+[releases page](https://github.com/plc/markupdown-releases/releases).
+
+## 0.4.1 — 2026-09-23
+
+### Fixed
+
+- **Send App Feedback filed issues against a repository nobody could see.** The source repo is
+  private, and issues on a private repo return 404 to anyone without access — which is everyone
+  who downloaded the app. Feedback now goes to the public downloads repository.
+- The install notes bundled with the download still described the File/Clipboard toggle removed
+  in 0.4.0.
 
 ## 0.4.0 — 2026-09-23
 
