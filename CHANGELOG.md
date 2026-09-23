@@ -3,6 +3,21 @@
 All notable changes to Markupdown. Newest first. Downloads are on the
 [releases page](https://github.com/plc/markupdown-releases/releases).
 
+## 0.5.0 — 2026-09-23
+
+### Added
+
+- **Update checking.** On launch, at most once a day, the app asks GitHub whether there is a
+  newer release and shows a bar across the top of the window if there is, with the release
+  notes, a download button, and Skip for a version you do not want. **Check for Updates…** in
+  the Markupdown menu forces a check and reports the result either way; it also overrides a
+  previous Skip. Turn the automatic check off and nothing is sent anywhere.
+
+  Deliberately a notification rather than a self-installing updater: downloading a replacement
+  bundle, verifying it and swapping it out underneath a running app is the fiddly,
+  security-sensitive part that Sparkle exists to get right, and hand-rolling that badly is
+  worse than a banner.
+
 ## 0.4.1 — 2026-09-23
 
 ### Fixed
