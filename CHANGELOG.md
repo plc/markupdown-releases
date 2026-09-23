@@ -3,6 +3,36 @@
 All notable changes to Markupdown. Newest first. Downloads are on the
 [releases page](https://github.com/plc/markupdown-releases/releases).
 
+## 0.7.0 — 2026-09-23
+
+Comments belong to a version of a document now, which took a surprising amount of machinery
+out rather than adding any.
+
+### Changed
+
+- **Comments are attached to the exact text they were written on**, identified by the hash of
+  the document's contents. Open a version you have commented on and the comments come back;
+  open anything else and there are none. Reviews of earlier versions stay on disk and come back
+  if the text ever returns to them.
+
+  This replaced a path-keyed store plus re-anchoring, which searched a rewritten document for
+  each comment's quoted text. That worked well enough to be misleading: after a rewrite the
+  quotes usually still existed somewhere, so notes about a previous draft reattached to new
+  prose looking entirely current. Gone with it: orphaned comments, the "earlier version" badge,
+  the archive banner, and the whole idea of a comment drifting.
+
+- **File > New is File > New Window.** It used to create an empty `untitled-<timestamp>.md` on
+  disk and open a window showing "paste markdown here" — a real file you could never type
+  into. It now opens an empty window, and the menu reads New Window / New from Clipboard /
+  Open. `⌘⇧V` and the empty-document prompt are gone with it.
+
+### Removed
+
+- **The Sent section.** Exporting or copying no longer marks comments as anything; the review
+  is simply what you have said about this version. Delete the ones you are finished with.
+- **Window tabbing**, which macOS adds to any app with a toolbar. Its "+" called a
+  `newWindowForTab:` this app never implemented, so the tab bar was broken.
+
 ## 0.6.0 — 2026-09-23
 
 ### Removed
@@ -18,8 +48,11 @@ All notable changes to Markupdown. Newest first. Downloads are on the
 
 ### Changed
 
-- `Integration/review-doc.md` now opens the document with `open -a Markupdown` and waits for you
-  to say you are done, rather than blocking on the CLI.
+- **The Claude Code integration is a skill now**, not a slash command:
+  `Integration/markupdown/`. Copy it to `~/.claude/skills/` once and Claude Code opens documents
+  in Markupdown on its own when it has written something you are going to read, rather than
+  waiting to be told. It also explains what the quoted spans mean, and that a comment reading
+  "Remove" came from pressing Delete.
 
 ## 0.5.0 — 2026-09-23
 
