@@ -3,6 +3,21 @@
 All notable changes to Markupdown. Newest first. Downloads are on the
 [releases page](https://github.com/plc/markupdown-releases/releases).
 
+## 0.8.0 — 2026-09-23
+
+### Changed
+
+- **Reload asks first.** A changed file means a different review, so reloading stops showing
+  the comments written on the text in front of you. It now says so and waits — and says plainly
+  that the comments are saved rather than deleted, because they are: they stay under that
+  version and come back if the file returns to it.
+- **A file changing on disk no longer swaps the document out from under you.** If there is
+  anything on screen to lose, a bar appears saying the file has changed, with a Reload button,
+  and nothing happens until you press it. With no comments open it still reloads silently,
+  since there is nothing to decide.
+- **Reload is disabled for a document pasted from the clipboard.** There is no source to reload
+  from; nothing else writes to it.
+
 ## 0.7.0 — 2026-09-23
 
 Comments belong to a version of a document now, which took a surprising amount of machinery
